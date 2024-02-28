@@ -81,3 +81,41 @@ m.youtube.com##ytm-chip-cloud-chip-renderer:has(.yt-core-attributed-string:has-t
 ! YT Search - keep only videos (no shorts), channels and playlists
 youtube.com##ytd-search ytd-item-section-renderer>#contents>:is(:not(ytd-video-renderer,ytd-channel-renderer, ytd-playlist-renderer,yt-showing-results-for-renderer),ytd-video-renderer:has([aria-label="Shorts"])),ytd-secondary-search-container-renderer
 
+! Disable Twitter distractions
+! Inspired by https://adamgreenough.me/blog/how-to-hide-whats-happening-trending-topics-on-twitter/#rules
+! Improved some and added some others.
+
+! Hide Twitter 'Timeline: Trending now' sidebar
+twitter.com##*[aria-label="Timeline: Trending now"]:nth-ancestor(2)
+
+! Hide Twitter 'Who to follow' sidebar
+twitter.com##*[aria-label="Who to follow"]:nth-ancestor(2)
+
+!Hide Twitter 'Subscribe to Premium' sidebar
+twitter.com##*[aria-label="Subscribe to Premium"]:nth-ancestor(1)
+
+!Hide Twitter 'Timeline: Your Home Timeline'
+twitter.com##*[aria-label="Timeline: Your Home Timeline"]
+
+! Hide Twitter bottom message panel
+twitter.com##*[data-testid="DMDrawerHeader"]
+
+!Hide Twitter 'Timeline: Explore'
+twitter.com##*[aria-label="Timeline: Explore"]
+
+!Hide Twitter 'New Tweets are available. Push the period key to go to the them.'
+twitter.com##*[aria-label="New Tweets are available. Push the period key to go to the them."]
+
+! TODO Fix this one to remove suggestions at the end of the comments in a post.
+!twitter.com##*[data-testid="cellInnerDiv"]:has-text('Sourced from across Twitter'):xpath(following-sibling::div)
+! Send me an email if you fixed this on. My username at gmail.com. My username is the same as the one in GitHub.
+
+! Hide Twitter 'Verified' left side menu item
+twitter.com##nav [role="link"][aria-label="Verified"]
+
+! Hide Twitter 'Communities' left side menu item
+! twitter.com##nav [role="link"][aria-label="Communities (New items)"]
+
+! Hide Twitter 'Listen live in Spaces'
+twitter.com##span:has-text(Listen live in Spaces):upward(4)
+
