@@ -3,7 +3,9 @@ www.reddit.com##+js(aeld, mousedown, isSelectionOutOfRange)
 www.reddit.com##+js(aeld, mouseup, shouldShowButton)
 reddit.com##[aria-label="Give gold"]>form, slot+[aria-label="Give gold"]
 
-
+!Exclude from Google Search
+www.google.*##.g:has(a[href*="anisearch.de"])
+www.google.*##a[href*="anisearch.de"]:upward(1)
 
 
 ! Title: Hide YouTube Shorts
