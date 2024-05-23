@@ -7,6 +7,9 @@ reddit.com##[aria-label="Give gold"]>form, slot+[aria-label="Give gold"]
 www.google.*##.g:has(a[href*="anisearch.de"])
 www.google.*##a[href*="anisearch.de"]:upward(1)
 
+www.google.*##.g:has(a[href*="quora.com"])
+www.google.*##a[href*="quora.com"]:upward(1)
+
 !Google Login prompt
 ||accounts.google.com/gsi/*$xhr,script,3p
 
