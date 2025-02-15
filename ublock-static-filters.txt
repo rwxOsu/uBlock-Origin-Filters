@@ -13,14 +13,6 @@ www.google.*##a[href*="quora.com"]:upward(1)
 !Google Login prompt
 ||accounts.google.com/gsi/*$xhr,script,3p
 
-! Title: Hide YouTube Shorts
-! Description: Hide all traces of YouTube shorts videos on YouTube
-! Version: 1.9.0
-! Last modified: 2024-02-17 11:55
-! Expires: 2 weeks (update frequency)
-! Homepage: https://github.com/gijsdev/ublock-hide-yt-shorts
-! License: https://github.com/gijsdev/ublock-hide-yt-shorts/blob/master/LICENSE.md
-
 ! Remove empty spaces in grid
 www.youtube.com##ytd-rich-grid-row,#contents.ytd-rich-grid-row:style(display: contents !important)
 
@@ -55,42 +47,8 @@ www.youtube.com##ytd-reel-shelf-renderer.ytd-structured-description-content-rend
 ! Hide shorts category on homepage and search pages
 www.youtube.com##yt-chip-cloud-chip-renderer:has(yt-formatted-string:has-text(/^Shorts$/i))
 
-!!! MOBILE !!!
-
-! Hide all videos in home feed containing the phrase "#shorts"
-www.youtube.com##ytm-rich-item-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
-
-! Hide all videos in subscription feed containing the phrase "#shorts"
-m.youtube.com##ytm-item-section-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
-
-! Hide shorts button in the bottom navigation bar
-m.youtube.com##ytm-pivot-bar-item-renderer:has(.pivot-shorts)
-
-! Hide all videos with the shorts indicator on the thumbnail
-m.youtube.com##ytm-video-with-context-renderer:has([data-style="SHORTS"])
-
-! Hide shorts sections
-m.youtube.com##ytm-rich-section-renderer:has(.reel-shelf-title-wrapper .yt-core-attributed-string:has-text(/(^| )Shorts( |$)/i))
-m.youtube.com##ytm-reel-shelf-renderer.item:has(.reel-shelf-title-wrapper .yt-core-attributed-string:has-text(/(^| )Shorts( |$)/i))
-
-! Hide shorts tab on channel pages
-! Old style
-m.youtube.com##.single-column-browse-results-tabs>a:has-text(Shorts)
-! New style (2023-10)
-m.youtube.com##yt-tab-shape:has-text(/^Shorts$/)
-
-! Hide short remixes in video descriptions
-m.youtube.com##ytm-reel-shelf-renderer:has(.reel-shelf-title-wrapper .yt-core-attributed-string:has-text(/^Shorts remixing this video$/i))
-
-! Hide shorts category on homepage
-m.youtube.com##ytm-chip-cloud-chip-renderer:has(.yt-core-attributed-string:has-text(/^Shorts$/i))
-
 ! YT Search - keep only videos (no shorts), channels and playlists
 youtube.com##ytd-search ytd-item-section-renderer>#contents>:is(:not(ytd-video-renderer,ytd-channel-renderer, ytd-playlist-renderer,yt-showing-results-for-renderer),ytd-video-renderer:has([aria-label="Shorts"])),ytd-secondary-search-container-renderer
-
-! Disable Twitter distractions
-! Inspired by https://adamgreenough.me/blog/how-to-hide-whats-happening-trending-topics-on-twitter/#rules
-! Improved some and added some others.
 
 ! Hide Twitter 'Timeline: Trending now' sidebar
 twitter.com##*[aria-label="Timeline: Trending now"]:nth-ancestor(2)
@@ -113,10 +71,6 @@ twitter.com##*[aria-label="Timeline: Explore"]
 !Hide Twitter 'New Tweets are available. Push the period key to go to the them.'
 twitter.com##*[aria-label="New Tweets are available. Push the period key to go to the them."]
 
-! TODO Fix this one to remove suggestions at the end of the comments in a post.
-!twitter.com##*[data-testid="cellInnerDiv"]:has-text('Sourced from across Twitter'):xpath(following-sibling::div)
-! Send me an email if you fixed this on. My username at gmail.com. My username is the same as the one in GitHub.
-
 ! Hide Twitter 'Verified' left side menu item
 twitter.com##nav [role="link"][aria-label="Verified"]
 
@@ -125,4 +79,10 @@ twitter.com##nav [role="link"][aria-label="Verified"]
 
 ! Hide Twitter 'Listen live in Spaces'
 twitter.com##span:has-text(Listen live in Spaces):upward(4)
+
+! Facebook Force Login Removal
+facebook.com##+js(trusted-click-element, body > div[id^="mount"] #scrollview ~ div div[role="button"]:has(> div[data-visualcompletion="ignore"]) )
+facebook.com##div[id^="mount"] div:not([id]):not([class]):not([style]) > div[data-nosnippet]
+facebook.com##+js(aeld, scroll)
+facebook.com##body > div[class*="__fb-light-mode"]  
 
