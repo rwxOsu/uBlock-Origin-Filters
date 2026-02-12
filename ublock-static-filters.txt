@@ -10,6 +10,10 @@ www.google.*##a[href*="anisearch.de"]:upward(1)
 www.google.*##.g:has(a[href*="quora.com"])
 www.google.*##a[href*="quora.com"]:upward(1)
 
+!Audible custom filter to remove "Virtual Voice" titles:
+
+www.audible.com##li.productListItem.bc-list-item:has-text('Virtual Voice')
+
 !Google Login prompt
 ||accounts.google.com/gsi/*$xhr,script,3p
 
